@@ -18,8 +18,8 @@ To get this project up and running locally, you must already have ruby and rails
 
 **Setup**
 
-- Clone this repository with `https://github.com/Amita-Roy/member-only.git` using your terminal or command line.<br>
-- Change to the project directory by entering `cd member-only` in the terminal<br>
+- Clone this repository with `https://github.com/mcihadkurel/private-events.git` using your terminal or command line.<br>
+- Change to the project directory by entering `cd private-events` in the terminal<br>
 - Next run `bundle install` to install the necessary dependencies<br>
 - run `rails db:create`
 - Run `rails db:migrate` to setup your local database.<br>
