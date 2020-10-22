@@ -28,12 +28,6 @@ To get this project up and running locally, you must already have ruby and rails
 
 ## Authors
 
-👤 **Amita Roy**
-
-- Github:[@Amita](https://github.com/Amita-Roy)
-- Twitter:[@Amita](https://twitter.com/AmitaRoy14)
-- Linkedin:[@Amita](https://www.linkedin.com/in/amita-roy-3b823b68/)
-
 👤 **Muhammed Cihad Kurel**
 
 - Github: [@mcihadkurel](https://github.com/mcihadkurel)
