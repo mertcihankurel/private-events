@@ -22,6 +22,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @past_events = @user.attended_events.where("event_date < ?", Time.now).order("event_date DESC")
+    @upcoming_events = @user.attended_events.where("event_date > ?", Time.now).order("event_date DESC")
   end
 
   def destroy
