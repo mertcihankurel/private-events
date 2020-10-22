@@ -4,7 +4,6 @@
 <p class="card-text">Creator: <%= User.find(@event.creator_id).name %></p>
 <h6><%= day_and_time(@event) %></h6>
 
-<% if false %>
 <div class="mt-5">
     <h4>All Attendess</h4>
     <% if @event.attendees.empty? %>
@@ -15,5 +14,5 @@
         <% end %>
     <% end %>
 </div>
-<% end %>
+
        
