@@ -1,0 +1,16 @@
+<h1 class="mb-3"><%= index_heading %></h1>
+<% if @events.empty? %>
+    <p>No Event!</p>
+<% else %>
+    <div class="d-flex">
+        <% @events.order("events.event_date DESC").each do |event| %>
+            <%= render "shared/eventcard", event: event %>
+        <% end %>
+    </div>
+<% end %>
+
+<% if new_event_button %>
+    <div class="mt-4">
+        <%= link_to "Add New Event", new_event_path, class: ["btn", "btn-dark"] %>
+    </div>
+<% end %>
