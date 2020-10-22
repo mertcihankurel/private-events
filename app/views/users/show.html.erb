@@ -1,3 +1,26 @@
+<h3><%= (@user.name).upcase %></h3>
+<h5><%= mail_to(@user.email) %></h5>
 
-<h3><%= @user.name %></h3>
-<h6><%= @user.email %></h6>
+<h4 class=" mt-5">Created events</h4>
+<% if @user.events.empty? %>
+    <p>No Event created yet!</p>
+<% else %>
+    <div class="d-flex mt-3">
+            <% @user.events.order("events.event_date DESC").each do |event| %>
+                <%= render "shared/eventcard", event: event %>
+            <% end %>
+    </div>
+<% end %>
+
+<h4 class=" mt-5">Events attended</h4>
+<% if @user.attended_events.empty? %>
+    <p>No Event attended yet!</p>
+<% else %>
+    <div class="d-flex flex-wrap">
+        <% @user.attended_events.order("events.event_date DESC").each do |event| %>
+            <div class="mr-3">
+            <%= render "shared/eventcard", event: event %>
+            </div>
+        <% end %>
+    </div>
+<% end %>
