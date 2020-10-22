@@ -28,18 +28,17 @@ To get this project up and running locally, you must already have ruby and rails
 
 ## Authors
 
-👤 **Amita Roy**
-
-- Github:[@Amita](https://github.com/Amita-Roy)
-- Twitter:[@Amita](https://twitter.com/AmitaRoy14)
-- Linkedin:[@Amita](https://www.linkedin.com/in/amita-roy-3b823b68/)
-
 👤 **Muhammed Cihad Kurel**
 
 - Github: [@mcihadkurel](https://github.com/mcihadkurel)
 - Twitter: [@mece_ka](https://twitter.com/mece_ka)
 - LinkedIn: [@muhammed](https://www.linkedin.com/in/muhammed-cihad-8187581a8/)
 
+👤 **Amita Roy**
+
+- Github: [@Amita](https://github.com/Amita-Roy)
+- Twitter: [@Amita](https://twitter.com/AmitaRoy14)
+- Linkedin: [@Amita](https://www.linkedin.com/in/amita-roy-3b823b68/)
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
