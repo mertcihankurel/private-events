@@ -4,6 +4,6 @@ class Event < ApplicationRecord
   has_many :attendees, through: :event_attendances, source: :attendee
   has_one_attached :main_image
 
-  scope :past, -> { where("event_date < ?", Time.now).order("event_date DESC") }
-  scope :upcoming, -> { where("event_date > ?", Time.now).order("event_date DESC") }
+  scope :past, -> { where('event_date < ?', Time.now).order('event_date DESC') }
+  scope :upcoming, -> { where('event_date > ?', Time.now).order('event_date DESC') }
 end

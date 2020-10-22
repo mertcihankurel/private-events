@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :require_signin, except: [:index, :show]
+  before_action :require_signin, except: %i[index show]
 
   def index
     @events = Event.send(events_filter)
@@ -13,7 +13,7 @@ class EventsController < ApplicationController
     @event = current_user.events.new(event_params)
 
     if @event.save
-      redirect_to @event, notice: "Thanks for creating a new event!"
+      redirect_to @event, notice: 'Thanks for creating a new event!'
     else
       render :new
     end
