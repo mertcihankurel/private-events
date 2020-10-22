@@ -1,0 +1,17 @@
+
+<h2>Event title</h2>
+<p><%= @event.description %></p>
+<p class="card-text">Creator: <%= User.find(@event.creator_id).name %></p>
+<h6><%= day_and_time(@event) %></h6>
+
+<div class="mt-5">
+    <h4>All Attendess</h4>
+    <% if @event.attendees.empty? %>
+        <p>No attendee yet! 🤦🏻‍♂️ </p>
+    <% else %>
+        <% @event.attendees.each do |attendee|%>
+           <h6><%= attendee.name%></h6>
+        <%end%>
+    <% end %>
+</div>
+       

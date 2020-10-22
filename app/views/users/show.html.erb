@@ -12,15 +12,15 @@
     </div>
 <% end %>
 
-<h4 class=" mt-5">Events attended</h4>
+<%# <h4 class=" mt-5">Events attended</h4>
 <% if @user.attended_events.empty? %>
-    <p>No Event attended yet!</p>
+    <%# <p>No Event attended yet!</p>
 <% else %>
-    <div class="d-flex flex-wrap">
+    <%# <div class="d-flex flex-wrap">
         <% @user.attended_events.order("events.event_date DESC").each do |event| %>
-            <div class="mr-3">
+            <%# <div class="mr-3">
             <%= render "shared/eventcard", event: event %>
-            </div>
+            <%# </div>
         <% end %>
-    </div>
-<% end %>
+    <%# </div>
+<% end %> 

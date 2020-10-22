@@ -16,10 +16,21 @@ class EventsController < ApplicationController
       render :new
     end
   end
+  def show
+    @event = Event.find(params[:id])
+  end
 
   private
 
   def event_params
     params.require(:event).permit(:title, :description, :creator_id)
+  end
+
+  def events_filter
+    if params[:filter].in? %w[past upcoming]
+      params[:filter]
+    else
+      :all
+    end
   end
 end
