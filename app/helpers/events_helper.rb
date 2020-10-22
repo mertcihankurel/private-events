@@ -8,6 +8,7 @@ module EventsHelper
   end
 
   def day_and_time(event)
+    # event.event_date..to_formatted_s(:long_ordinal)
     event.event_date.strftime("%B %d at %I:%M %P")
   end
 

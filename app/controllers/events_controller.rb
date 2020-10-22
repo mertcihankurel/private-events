@@ -1,6 +1,8 @@
 class EventsController < ApplicationController
+  before_action :require_signin, except: [:index, :show]
+
   def index
-    @events = Event.all
+    @events = Event.send(events_filter)
   end
 
   def new
@@ -16,6 +18,7 @@ class EventsController < ApplicationController
       render :new
     end
   end
+
   def show
     @event = Event.find(params[:id])
   end
@@ -23,7 +26,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :description, :creator_id)
+    params.require(:event).permit(:title, :description, :creator_id, :main_image, :event_date)
   end
 
   def events_filter
