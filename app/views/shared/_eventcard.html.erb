@@ -6,8 +6,9 @@
         <h5 class="card-title mb-0"><%= (event.title).capitalize %></h5>
         <small class="text-muted"><%= day_and_time(event) %></small>
         <p class="card-text mt-3"><%= truncate(event.description, :length => 25, omission: "... more") %></p>
-        
+        <% if current_user %>
         <p class="card-text">Creator: <%= User.find(event.creator_id).name %></p>
+        <% end %>
         <%= link_to "Event Detail", event_path(event), class: "card-link" %>
 
     </div>
