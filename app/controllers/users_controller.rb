@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_signin, except: %i[new create]
-  before_action :require_correct_user
+  before_action :require_correct_user, except: %i[new create]
 
   def new
     @user = User.new
@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to @user, notice: 'Thanks for signing up!'
+      redirect_to @user, notice: "Thanks for signing up!"
     else
       render :new
     end
@@ -19,8 +19,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @past_events = @user.attended_events.where('event_date < ?', Time.now).order('event_date DESC')
-    @upcoming_events = @user.attended_events.where('event_date > ?', Time.now).order('event_date DESC')
+    @past_events = @user.attended_events.where("event_date < ?", Time.now).order("event_date DESC")
+    @upcoming_events = @user.attended_events.where("event_date > ?", Time.now).order("event_date DESC")
   end
 
   def destroy

@@ -2,19 +2,17 @@ require "rails_helper"
 
 RSpec.describe User, type: :model do
   context "validation test" do
+    let(:user) { build(:user) }
+    let(:rand_user) { build(:random_user) }
+
     it "ensure name is present" do
-      user = User.new(email: "name@example.com").save
-      expect(user).to eq(false)
+      user.name = nil
+      expect(user.save).to eq(false)
     end
 
     it "ensures email is present" do
-      user = User.new(name: "Name").save
-      expect(user).to eq(false)
-    end
-
-    it "should save successfully" do
-      user = User.new(name: "Name", email: "name@example.com").save
-      expect(user).to eq(true)
+      user.email = nil
+      expect(user.save).to eq(false)
     end
   end
   context "associations" do
