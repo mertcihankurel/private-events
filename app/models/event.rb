@@ -7,6 +7,6 @@ class Event < ApplicationRecord
   validates :description, :title, :event_date, presence: true
   validates :title, length: { minimum: 5, maximum: 20 }
 
-  scope :past, -> { where("event_date < ?", Time.now).order("event_date DESC") }
-  scope :upcoming, -> { where("event_date > ?", Time.now).order("event_date DESC") }
+  scope :past, -> { where('event_date < ?', Time.now).order('event_date DESC') }
+  scope :upcoming, -> { where('event_date > ?', Time.now).order('event_date DESC') }
 end
