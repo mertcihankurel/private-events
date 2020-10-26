@@ -1,0 +1,33 @@
+
+<h2>Event title</h2>
+<p><%= @event.description %></p>
+<% if current_user %>
+<p class="card-text">Creator: <%= User.find(@event.creator_id).name %></p>
+<% end %>
+<h6><%= day_and_time(@event) %></h6>
+
+<% if current_user %>
+<div class="mt-5">
+    <h4>All Attendess</h4>
+    <% if @event.attendees.empty? %>
+        <p>No attendee yet! 🤦🏻‍♂️ </p>
+    <% else %>
+        <% @event.attendees.each do |attendee| %>
+            <% if attendee.name == current_user.name %>
+                <h6><%= link_to "#{(attendee.name).capitalize} .... 👍 ..... ", user_path(attendee) %></h6>
+            <%else%>
+                <h6><%= "#{(attendee.name).capitalize} .... 👍 ....." %></h6>
+            <% end %>
+        <% end %>
+    <% end %>
+</div>
+<% end %>
+<% if  current_user && upcoming_date(@event) %>
+    <% if attendee?(@event, current_user)%>
+        <%= link_to 'Not Attending', event_event_attendance_path(@event), class: ['btn', 'btn-danger'], method: :delete %>
+    <% else %>
+        <%= link_to 'Attending', event_event_attendance_path(@event), class: ['btn', 'btn-dark'], method: :post %>
+    <%end%>
+<% end %>
+
+       

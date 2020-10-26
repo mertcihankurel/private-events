@@ -1,3 +1,13 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'events#index'
+
+  get 'events/filter/:filter' => 'events#index', as: :filtered_events
+  resources :users, only: [:new, :create, :show]
+  get 'signup' => 'users#new'
+  resource :session, only: [:new, :create, :destroy]
+  get 'signin' => 'sessions#new'
+
+  resources :events do
+    resource :event_attendance, only: [:create, :destroy]
+  end
 end

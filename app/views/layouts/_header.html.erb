@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <%= link_to "Private-Events", root_path, class: ["navbar-brand", "brand"] %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+          
+            <li class="nav-item">
+                <%= link_to "All Events", filtered_events_path(:all), class: "nav-link" %>
+            </li>
+
+              <li class="nav-item">
+                <%= link_to "Past Events", filtered_events_path(:past), class: "nav-link" %>
+            </li>
+
+              <li class="nav-item">
+                <%= link_to "Upcoming Events", filtered_events_path(:upcoming), class: "nav-link" %>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <% if current_user %>
+                <li class="nav-item">
+                    <%= link_to (current_user.name).capitalize, current_user, class: "nav-link" %>
+                </li>
+         
+                <li class="nav-item">
+                    <%= link_to "Sign Out", session_path, method: :delete, class: "nav-link" %>
+                </li>
+            <% else %>
+                <li class="nav-item">
+                    <%= link_to "Sign In", signin_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                    <%= link_to "Sign Up", signup_path, class: "nav-link" %>
+                </li>
+            <% end %>
+            
+        </ul>
+    </div>
+</nav>
