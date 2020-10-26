@@ -25,4 +25,12 @@ module EventsHelper
       'All Events'
     end
   end
+
+  def attendee?(event, user)
+    event.attendees.include?(user)
+  end
+
+  def upcoming_date(event)
+    event.event_date >= Time.now
+  end
 end

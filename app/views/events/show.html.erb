@@ -13,10 +13,21 @@
         <p>No attendee yet! 🤦🏻‍♂️ </p>
     <% else %>
         <% @event.attendees.each do |attendee| %>
-           <h6><%= attendee.name %></h6>
+            <% if attendee.name == current_user.name %>
+                <h6><%= link_to "#{(attendee.name).capitalize} .... 👍 ..... ", user_path(attendee) %></h6>
+            <%else%>
+                <h6><%= "#{(attendee.name).capitalize} .... 👍 ....." %></h6>
+            <% end %>
         <% end %>
     <% end %>
 </div>
+<% end %>
+<% if  current_user && upcoming_date(@event) %>
+    <% if attendee?(@event, current_user)%>
+        <%= link_to 'Not Attending', event_event_attendance_path(@event), class: ['btn', 'btn-danger'], method: :delete %>
+    <% else %>
+        <%= link_to 'Attending', event_event_attendance_path(@event), class: ['btn', 'btn-dark'], method: :post %>
+    <%end%>
 <% end %>
 
        
