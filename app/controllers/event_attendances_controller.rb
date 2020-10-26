@@ -4,7 +4,7 @@ class EventAttendancesController < ApplicationController
     @attendance = EventAttendance.new(attendee_id: current_user, attended_event_id: event.id)
     @attendance.save
     event.attendees << current_user
-    redirect_to event_path(event), notice: "You are successfully registered for the event!"
+    redirect_to event_path(event), notice: 'You are successfully registered for the event!'
   end
 
   def destroy
@@ -13,6 +13,6 @@ class EventAttendancesController < ApplicationController
 
     EventAttendance.delete(@attendance)
     event.attendees.delete(current_user)
-    redirect_to event_path(event), notice: "We are not happy to see you go! 😞"
+    redirect_to event_path(event), notice: 'We are not happy to see you go! 😞'
   end
 end
