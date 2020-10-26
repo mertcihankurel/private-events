@@ -22,6 +22,7 @@ To get this project up and running locally, you must already have ruby and rails
 - Clone this repository with `https://github.com/mcihadkurel/private-events.git` using your terminal or command line.<br>
 - Change to the project directory by entering `cd private-events` in the terminal<br>
 - Next run `bundle install` to install the necessary dependencies<br>
+- run rails `active_storage:install`
 - run `rails db:create`
 - Run `rails db:migrate` to setup your local database.<br>
 - Finally run `rails console` to start the application.<br>
@@ -39,6 +40,7 @@ To get this project up and running locally, you must already have ruby and rails
 - Github: [@Amita](https://github.com/Amita-Roy)
 - Twitter: [@Amita](https://twitter.com/AmitaRoy14)
 - Linkedin: [@Amita](https://www.linkedin.com/in/amita-roy-3b823b68/)
+
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
